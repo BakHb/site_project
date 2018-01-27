@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dépot d'annonce</title>
+    <link rel="stylesheet" href="../CSS/formulaireAnnonce.css" />
+</head>
+
+<body>
+    <div id="bloc_page">
+
+        <header>
+            <h1>ENTETE DE LA PAGE</h1>
+            <nav>
+                <p>Barre de navigation</p>
+            </nav>
+        </header>
+        
+        <div id="blocHaut">
+           <p>Bloc vide pour le moment</p>
+        </div>
+
+        <section>
+
+            <div id="bloc_annonce">
+
+                <div id="titre_bloc">
+                    <p>Votre Annonce </p>
+                </div>
+
+                <div id="formulaire_annonce">
+                    <form method="post" action="#">
+
+                        <p>
+                            <label for="titre_annonce">Titre de l'annonce</label> :
+                            <input type="text" name="titre_annonce" id="titre_annonce" placeholder="Ex. Mercedes 190" required>
+                            <span id="aideTitre"></span>
+                        </p>
+
+                        <p>
+                            <label for="prix">prix (en ouguiya nouvelle)</label> :
+                            <input type="number" name="prix" id="prix" min="0" step="100" placeholder="Ex. 6500" required>
+                            <span id="aidePrix"></span>
+                        </p>
+
+                        <p>
+                            <label for="vendeur">Nom du vendeur</label> :
+                            <input type="text" name="vendeur" id="vendeur" placeholder="Votre nom" required>
+                            <span id="aideVendeur"></span>
+                        </p>
+
+                        <p>
+                            <label for="tel">Numero telephone</label> :
+                            <input type="tel" maxlength="15" placeholder="Ex. 36101010" name="tel" id="tel">
+                            <span id="aideTel"></span>
+                        </p>
+
+                        <div id="description_annonce">
+                            
+                            <div class="dscrp">
+                                <p>Description de l'annonce : </p>
+                            </div>
+
+                            <div class="dscrp">
+                                
+                                <p>
+                                    <label for="model">Modèle</label>:
+                                    <select name="model" id="model" value="">
+                                        <option disabled selected value> -- choisir une option -- </option>
+                                        <optgroup label="Toyota">
+                                            <option value="Avensis">Avensis</option>
+                                            <option value="Corolla">Corolla</option>
+                                            <option value="Camry">Camry</option>
+                                            <option value="LandCruiser">Land-Cruiser</option>
+                                            <option value="Hilux">Hilux</option>
+                                            <option value="AutreToyota">Autre Toyota</option>
+                                        </optgroup>
+                                        <optgroup label="Mercedes">
+                                            <option value="190">190</option>
+                                            <option value="ClassC">Class C</option>
+                                            <option value="Etc...">Etats-Unis</option>
+                                        </optgroup>
+                                        <optgroup label="etc...">
+                                        </optgroup>
+                                    </select>
+                                </p>
+                                
+                                 <p>
+                                     <label for="annee_sortie">Année de sortie : </label> :
+                                     <input type="text" name="annee_sortie" id="année_sortie" placeholder="Ex. 2013" >
+                                     <span id="aideAnneeSortie"></span>
+                                </p>
+
+                                <p>
+                                    <label for="immatr">Immatriculation</label>
+                                    <input type="text" maxlength="2" name="AA" style="width: 5%" id="AA">
+                                    <input type="text" maxlength="2" name="00" style="width: 5%" id="00">
+                                </p>
+
+                                <p>
+                                    <label>Boite vitesse : </label>
+                                    <select name="vitesse" id="vitesse">
+                                        <option value="manuel">Manuelle</option>
+                                        <option value="auto">Automatique</option>
+                                    </select>
+                                </p>
+
+                                <p>
+                                    <label>Kilométrage : </label>
+                                    <input type="number" min="0" step="500" id="kilometrage" />
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div id="img_annonce">
+                            <label>Telecharger les images de votre annonce : </label>
+                            <div id="imgs" >
+                                <input type="file" id="img1" />
+                                <input type="file" id="img2" />
+                                <input type="file" id="img3" />
+                            </div>
+                        </div>
+
+
+                        <p>
+                            <label for="infoSup">Ecrivez les information que vous voulez ajouter à votre annonce : </label><br />
+                            <textarea name="infoSup" id="infoSup" rows="10" ></textarea>
+                        </p>
+
+                        <input type="submit" value="Envoyer">
+                        <input type="reset" value="Annuler">
+
+
+                    </form>
+                </div>
+            </div>
+            
+            <aside>
+                <p>aside vide pour le moment</p>
+            </aside>
+            
+        </section>
+        
+        <footer>
+            <h1>PIED DE LA PAGE</h1>
+        </footer>
+        
+    </div>
+</body>
+</html>
