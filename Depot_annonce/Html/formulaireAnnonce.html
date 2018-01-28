@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Dépot d'annonce</title>
     <link rel="stylesheet" href="../CSS/formulaireAnnonce.css" />
+    <script src="../js/formulaireAnnonce.js"></script>
 </head>
 
 <body>
@@ -30,7 +31,9 @@
                 </div>
 
                 <div id="formulaire_annonce">
-                    <form method="post" action="#">
+                <div class="container">
+                <div class="main">
+                    <form action="#" method="post" id="form_id" >
 
                         <p>
                             <label for="titre_annonce">Titre de l'annonce</label> :
@@ -129,11 +132,13 @@
                             <textarea name="infoSup" id="infoSup" rows="10" ></textarea>
                         </p>
 
-                        <input type="submit" value="Envoyer">
+                        <input type="button" value="Envoyer" onclick="envoyer()"/>
                         <input type="reset" value="Annuler">
 
 
                     </form>
+                    </div>
+                    </div>
                 </div>
             </div>
             
