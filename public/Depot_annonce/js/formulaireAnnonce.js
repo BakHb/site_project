@@ -1,3 +1,4 @@
+//dcommentaire git 
 function envoyer() {
 var titre_annonce = document.getElementById("titre_annonce").value;
 var vendeur = document.getElementById("vendeur").value;
