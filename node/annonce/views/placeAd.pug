@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title Dépot d\'annonce
+	body
+		.container
+			fieldset
+				form(action='/addAd', method='post')
+					input.ghost-input(name='adTitle', type='text', placeholder='Entrer le titre de votre annonce', required='')
+					input.ghost-input(name='userName', type='text', placeholder='Entrer votre nom', required='')
+					input(name='img', type='file')
+					input.ghost-button(type='submit', value='Ajouter l\'annonce')
