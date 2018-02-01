@@ -34,9 +34,9 @@ router.post('/addAd', function (req, res) {
     var img2 = req.body.img2
     var img3 = req.body.img3
     var infoSup = req.body.infoSup
-    
 
-    // TODO : Change the db name 
+
+    // TODO : Change the db name
     var collection = db.get('annonce');
     collection.insert({
         "titre_annonce": titre_annonce,
@@ -56,7 +56,7 @@ router.post('/addAd', function (req, res) {
         if (err) {
             res.send("error");
         } else {
-            res.redirect("placeAd");
+            res.render('index');
         }
     });
 });
