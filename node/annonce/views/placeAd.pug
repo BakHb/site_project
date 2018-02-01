@@ -1,13 +1,98 @@
 doctype html
 html
-	head
-		meta(charset='utf-8')
-		title Dépot d\'annonce
-	body
-		.container
-			fieldset
-				form(action='/addAd', method='post')
-					input.ghost-input(name='adTitle', type='text', placeholder='Entrer le titre de votre annonce', required='')
-					input.ghost-input(name='userName', type='text', placeholder='Entrer votre nom', required='')
-					input(name='img', type='file')
-					input.ghost-button(type='submit', value='Ajouter l\'annonce')
+  head
+    meta(charset="utf-8")
+    title Dépot d'annonce
+    link(rel="stylesheet" href="./public/CSS/formulaireAnnonce.css")
+  body
+    #bloc_page
+      header
+        h1 ENTETE DE LA PAGE
+        nav
+          p Barre de navigation
+      #blocHaut
+        p Bloc vide pour le moment
+      section
+        #bloc_annonce
+          #titre_bloc
+            p Votre Annonce 
+          #formulaire_annonce
+            .container
+              .main
+                form#form_id(action="/addAd" method="post")
+                  p
+                    label(for="titre_annonce") Titre de l'annonce
+                    |  :
+                    input#titre_annonce(type="text" name="titre_annonce" placeholder="Ex. Mercedes 190" required="")
+                    span#aideTitre
+                  p
+                    label(for="prix") prix (en ouguiya nouvelle)
+                    |  :
+                    input#prix(type="number" name="prix" min="0" step="100" placeholder="Ex. 6500" required="")
+                    span#aidePrix
+                  p
+                    label(for="vendeur") Nom du vendeur
+                    |  :
+                    input#vendeur(type="text" name="vendeur" placeholder="Votre nom" required="")
+                    span#aideVendeur
+                  p
+                    label(for="tel") Numero telephone
+                    |  :
+                    input#tel(type="tel" maxlength="15" placeholder="Ex. 36101010" name="tel")
+                    span#aideTel
+                  #description_annonce
+                    .dscrp
+                      p Description de l'annonce : 
+                    .dscrp
+                      p
+                        label(for="model") Modèle
+                        | :
+                        select#model(name="model" value="")
+                          option(disabled="" selected="" value="")  -- choisir une option -- 
+                          optgroup(label="Toyota")
+                            option(value="Avensis") Avensis
+                            option(value="Corolla") Corolla
+                            option(value="Camry") Camry
+                            option(value="LandCruiser") Land-Cruiser
+                            option(value="Hilux") Hilux
+                            option(value="AutreToyota") Autre Toyota
+                          optgroup(label="Mercedes")
+                            option(value="190") 190
+                            option(value="ClassC") Class C
+                            option(value="Etc...") Etats-Unis
+                          optgroup(label="etc...")
+                      p
+                        label(for="annee_sortie") Année de sortie : 
+                        |  :
+                        input(type="text" name="annee_sortie" id="année_sortie" placeholder="Ex. 2013")
+                        span#aideAnneeSortie
+                      p
+                        label(for="immatr") Immatriculation
+                        input#AA(type="text" maxlength="2" name="AA" style="width: 5%")
+                        input#00(type="text" maxlength="2" name="00" style="width: 5%")
+                      p
+                        label Boite vitesse : 
+                        select#vitesse(name="vitesse")
+                          option(value="manuel") Manuelle
+                          option(value="auto") Automatique
+                      p
+                        label Kilométrage : 
+                        input#kilometrage(type="number" min="0" step="500" name="kmetrage")
+                  #img_annonce
+                    label Telecharger les images de votre annonce : 
+                    #imgs
+                      input#img1(type="file" name="img1")
+                      input#img2(type="file" name="img2")
+                      input#img3(type="file" name="img3")
+                  p
+                    label(for="infoSup") Ecrivez les information que vous voulez ajouter à votre annonce : 
+                    br
+                    textarea#infoSup(name="infoSup" rows="10")
+                  input(type="submit" value="Ajouter l\'annonce" )
+                  input(type="reset" value="Annuler")
+        aside
+          p aside vide pour le moment
+      footer
+        h1 PIED DE LA PAGE
+    
+
