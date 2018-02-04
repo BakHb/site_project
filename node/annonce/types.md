@@ -1,0 +1,18 @@
+
+- Home page
+  - Views :
+    - views/home/index.pug
+    - Buttons :
+      - register => GET register
+      - sign_in => GET sign_in
+      - post_ad => GET post_ad
+      - ads => GET ads
+  - JavaScript :
+    - javascript/home
+    - register_onclick()
+    - sign_in_onclick()
+    - post_ad_onclick()
+    - ads_onclick()
+  - CSS :
+    - stylesheets/home
+      - it is up to you.
