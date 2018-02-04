@@ -13,12 +13,10 @@
       - sign_in => GET sign_in
       - post_ad => GET post_ad
       - ads => GET ads
+      - help => GET help
   - JavaScript :
     - javascript/home/index.js
     - register_onclick()
     - sign_in_onclick()
     - post_ad_onclick()
     - ads_onclick()
-  - CSS :
-    - stylesheets/home/index.css
-      - it is up to you.
