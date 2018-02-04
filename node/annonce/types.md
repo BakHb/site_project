@@ -16,7 +16,6 @@
     - sign_in_onclick()
     - my_profil_onclick()
     - search_input_submit()
-
   - CSS :
     - stylesheets/layout.css
 
