@@ -8,11 +8,14 @@
         - sign_in => GET sign_in
       - if connected
         - my_profil => GET my_profil
+    - Forms
+      - search_input => GET search_result
   - JavaScript :
     - javascript/layout.js
     - register_onclick()
     - sign_in_onclick()
     - my_profil_onclick()
+    - search_input_submit()
 
   - CSS :
     - stylesheets/layout.css
