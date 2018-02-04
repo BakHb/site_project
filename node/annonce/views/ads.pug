@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title Dépot d'annonce
+    link(rel="stylesheet" href="/stylesheets/placeAd.css")
+  body
+    #bloc_page
+      header
+        h1 ENTETE DE LA PAGE
+        nav
+          p Barre de navigation
+      #blocHaut
+        p Bloc vide pour le moment
+      section
+        #bloc_annonce
+          #titre_bloc
+            p Les Annonces
+                each ad in adslist
+                    p Titre Annonce : #{ad.titre_annonce} 
+                        p Prix : #{ad.prix}
+                        p Vendeur : #{ad.vendeur}
+                        p Tel : #{ad.tel}
+                        p Modèle : #{ad.model}
+                        p Année sortie : #{ad.annee_sortie}
+                        p Vitesse : #{ad.vitesse}
+                        p Immatriculation : #{ad.AA}
+                        p Kilometrage : #{ad.kmetrage}
+                        p Les images : #{ad.img1} #{ad.img2} #{ad.img3}
+                        p Info annonce : #{ad.infoSup}
+                        
+        aside
+          p aside vide pour le moment
+      footer
+        h1 PIED DE LA PAGE
+    
+

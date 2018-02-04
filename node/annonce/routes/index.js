@@ -59,4 +59,16 @@ router.post('/addAd', function (req, res) {
     });
 });
 
+router.get("/ads", function(req, res){
+    var db = req.db ; 
+    var collection = db.get('annonce') ; 
+    collection.find({},function (err, result){
+        if (err) {
+            res.send("error");
+        } else {
+            res.render('ads', {'adslist': result});
+        }
+    });
+});
+
 module.exports = router;
