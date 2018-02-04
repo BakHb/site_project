@@ -20,3 +20,6 @@
     - sign_in_onclick()
     - post_ad_onclick()
     - ads_onclick()
+  - CSS :
+    - stylesheets/home/index.css
+      - it is up to you.
