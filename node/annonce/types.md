@@ -1,4 +1,10 @@
 
+- Layout page
+  - Views :
+    - views/layout.pug
+  - CSS :
+    - stylesheets/layout.css
+    
 - Home page
   - Views :
     - views/index.pug
@@ -8,11 +14,11 @@
       - post_ad => GET post_ad
       - ads => GET ads
   - JavaScript :
-    - javascript/home
+    - javascript/home/index.js
     - register_onclick()
     - sign_in_onclick()
     - post_ad_onclick()
     - ads_onclick()
   - CSS :
-    - stylesheets/home
+    - stylesheets/home/index.css
       - it is up to you.
