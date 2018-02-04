@@ -2,24 +2,33 @@
 - Layout page
   - Views :
     - views/layout.pug
+    - Buttons :
+      - if non connected
+        - register => GET register
+        - sign_in => GET sign_in
+      - if connected
+        - my_profil => GET my_profil
+  - JavaScript :
+    - javascript/layout.js
+    - register_onclick()
+    - sign_in_onclick()
+    - my_profil_onclick()
+
   - CSS :
     - stylesheets/layout.css
-    
+
 - Home page
   - Views :
     - views/index.pug
     - Buttons :
-      - register => GET register
-      - sign_in => GET sign_in
       - post_ad => GET post_ad
       - ads => GET ads
       - help => GET help
   - JavaScript :
     - javascript/home/index.js
-    - register_onclick()
-    - sign_in_onclick()
     - post_ad_onclick()
     - ads_onclick()
+    - help_onclick()
   - CSS :
     - stylesheets/home/index.css
       - it is up to you.
