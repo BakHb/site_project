@@ -1,7 +1,7 @@
 
 - Home page
   - Views :
-    - views/home/index.pug
+    - views/index.pug
     - Buttons :
       - register => GET register
       - sign_in => GET sign_in
