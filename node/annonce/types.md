@@ -3,7 +3,7 @@
   - Views :
     - views/layout.pug
     - Buttons :
-      - if non connected
+      - if not connected
         - register => GET register
         - sign_in => GET sign_in
       - if connected
@@ -34,4 +34,3 @@
     - help_onclick()
   - CSS :
     - stylesheets/index.css
-      - it is up to you.
