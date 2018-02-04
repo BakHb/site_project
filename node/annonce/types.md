@@ -25,10 +25,10 @@
       - ads => GET ads
       - help => GET help
   - JavaScript :
-    - javascript/home/index.js
+    - javascript/index.js
     - post_ad_onclick()
     - ads_onclick()
     - help_onclick()
   - CSS :
-    - stylesheets/home/index.css
+    - stylesheets/index.css
       - it is up to you.
