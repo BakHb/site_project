@@ -5,11 +5,30 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var mongo = require('mongodb');
-var monk = require('monk');
+var dbUrl = 'localhost:27017';
 
-// TODO: Change the name of the database
-var db = monk('localhost:27017/annonce');
+var DB = require('./database/index');
+
+var db = new DB(dbUrl, 'users',
+        [
+          'userName',
+          'mail'
+        ], 'annonce',
+        [
+          "titre_annonce",
+          "prix",
+          "vendeur",
+          "tel",
+          "model",
+          "annee_sortie",
+          "vitesse",
+          "AA",
+          "kmetrage",
+          "img1",
+          "img2",
+          "img3",
+          "infoSup"
+        ]);
 
 var index = require('./routes/index');
 
@@ -27,10 +46,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Make our db accessible to our router
-app.use(function(req,res,next){
+// Check that the connection with the database is possible
+app.use(function(req, res, next){
   req.db = db;
-  next();
 });
 
 app.use('/', index);
@@ -52,6 +70,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;
