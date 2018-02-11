@@ -5,30 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var dbUrl = 'localhost:27017';
+var dbUrl = 'localhost:27017/database';
 
 var DB = require('./database/index');
 
-var db = new DB(dbUrl, 'users',
-        [
-          'userName',
-          'mail'
-        ], 'annonce',
-        [
-          "titre_annonce",
-          "prix",
-          "vendeur",
-          "tel",
-          "model",
-          "annee_sortie",
-          "vitesse",
-          "AA",
-          "kmetrage",
-          "img1",
-          "img2",
-          "img3",
-          "infoSup"
-        ]);
+var db = new DB(dbUrl, 'users', 'annonce');
 
 var index = require('./routes/index');
 
@@ -46,9 +27,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Check that the connection with the database is possible
+// Add the database
 app.use(function(req, res, next){
   req.db = db;
+  next();
 });
 
 app.use('/', index);

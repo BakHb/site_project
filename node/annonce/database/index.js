@@ -2,8 +2,8 @@ var mongo = require('mongodb');
 var monk = require('monk');
 
 var customForeach = function(array, asyncFunction, callback) {
-  var itemProcessed = 0;
-  array.foreach(function (item, index, a) {
+  var itemsProcessed = 0;
+  array.forEach(function (item, index, a) {
     asyncFunction (item, function () {
       itemsProcessed++;
       if(itemsProcessed == a.length) {
@@ -13,60 +13,41 @@ var customForeach = function(array, asyncFunction, callback) {
   });
 };
 
-function DB (dbUrl, usersDb, userJsonKeys, adsDb, adsJsonKeys) {
+function DB (dbUrl, usersDb, adsDb) {
   this.dbUrl = dbUrl;
   this.usersDb = usersDb;
-  this.userJsonKeys = userJsonKeys;
   this.adsDb = adsDb;
-  this.adsJsonKeys = adsJsonKeys;
 }
 
-DB.prototype.addUser = function (req, res, next) {
+
+// TODO :
+DB.prototype.addUser = function (body, next) {
   var db = monk(this.dbUrl);
   if (!db) {
     var err = new Error('Not connected');
     err.status = 406;
-    next(err, req, res);
+    next(err);
   }
   else {
-    var insertObject = {};
-    customForeach (userJsonKeys, function (item, next) {
-      insertObject[item] = req.body[item];
-    }, function () {
-      db.get(usersDb).insert(insertObject, function (err, doc) {
-        if (err) {
-          next(err, req, res);
-        }
-        else {
-          next(null, req, res);
-        }
-        db.close();
-      });
+    db.get(this.usersDb).insert(insertObject, function (err, doc) {
+      next(err);
+      db.close();
     });
   }
 }
 
-DB.prototype.addAd = function (req, res, next) {
+DB.prototype.addAd = function (body, next) {
   var db = monk(this.dbUrl);
   if (!db) {
     var err = new Error('Not connected');
     err.status = 406;
-    next(err, req, res);
+    next(err);
   }
   else {
-    var insertObject = {};
-    customForeach (adsJsonKeys, function (item, next) {
-      insertObject[item] = req.body[item];
-    }, function () {
-      db.get(adsDb).insert(insertObject, function (err, doc) {
-        if (err) {
-          next(err, req, res);
-        }
-        else {
-          next(null, req, res);
-        }
-        db.close();
-      });
+    var collection = db.get(this.adsDb)
+    collection.insert(body, function (err, doc) {
+      next(err);
+      db.close();
     });
   }
 }
@@ -81,10 +62,13 @@ DB.prototype.getAd = function (req, res, next) {
     next(err, req, res);
   }
   else {
+    next(null, req, res);
     db.close();
   }
 }
 
+
+// TODO :
 DB.prototype.getAllAds = function (req, res, next) {
   var db = monk(this.dbUrl);
   if (!db) {
@@ -93,7 +77,7 @@ DB.prototype.getAllAds = function (req, res, next) {
     next(err, req, res);
   }
   else {
-    db.collection('adsDb').find({}).toArray(function (err, result) {
+    db.collection(this.adsDb).find({}).toArray(function (err, result) {
       if (err) {
         next (err, req, res, result);
       }
